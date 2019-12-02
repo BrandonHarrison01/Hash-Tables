@@ -56,8 +56,7 @@ class HashTable:
 
         if not self.storage[hashed_key]:
             self.storage[hashed_key] = value
-            print(self.storage)
-            return
+            return self.storage
         else:
             print('index is being used')
 
@@ -71,7 +70,7 @@ class HashTable:
 
         Fill this in.
         '''
-        pass
+        self.storage[self._hash_mod(key)] = None
 
 
     def retrieve(self, key):
@@ -124,8 +123,14 @@ class HashTable:
 
 #     print("")
 
-def hash_test():
-    HashTable(2).insert('abc', 'value')
-    HashTable(5).insert('abc', 'value')
+hashtable = HashTable(3)
 
-print(hash_test())
+hashtable.insert('abc', 'test1')
+hashtable.insert('acb', 'test2')
+
+print(hashtable.storage)
+
+hashtable.remove('abc')
+
+print(hashtable.storage)
+
