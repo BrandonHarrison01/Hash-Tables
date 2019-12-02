@@ -81,7 +81,7 @@ class HashTable:
 
         Fill this in.
         '''
-        pass
+        return self.storage[self._hash_mod(key)]
 
 
     def resize(self):
@@ -134,3 +134,4 @@ hashtable.remove('abc')
 
 print(hashtable.storage)
 
+print(hashtable.retrieve('acb'), 'abld')
